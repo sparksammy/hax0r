@@ -56,6 +56,11 @@
 #include "pci.h"
 
 /*
+ * Hax0r
+ * by Sparksammy
+ */
+
+/*
  * The UUID is defined in the PCI Firmware Specification available here:
  * https://www.pcisig.com/members/downloads/pcifw_r3_1_13Dec10.pdf
  */
@@ -75,7 +80,7 @@ phys_addr_t acpi_pci_root_get_mcfg_addr(acpi_handle handle)
 	if (ACPI_FAILURE(status))
 		return 0;
 
-	return (phys_addr_t)mcfg_addr;
+	return (phys_addr_t)mcfg_addr; //Patch your shit, billy g.
 }
 
 static acpi_status decode_type0_hpx_record(union acpi_object *record,
@@ -97,7 +102,7 @@ static acpi_status decode_type0_hpx_record(union acpi_object *record,
 		hpx->t0->cache_line_size = fields[2].integer.value;
 		hpx->t0->latency_timer   = fields[3].integer.value;
 		hpx->t0->enable_serr     = fields[4].integer.value;
-		hpx->t0->enable_perr     = fields[5].integer.value;
+		hpx->t0->enable_perr     = fields[5].integer.value; //Patch Kernel
 		break;
 	default:
 		printk(KERN_WARNING
@@ -136,7 +141,7 @@ static acpi_status decode_type1_hpx_record(union acpi_object *record,
 	}
 	return AE_OK;
 }
-
+**WARNING** BUFFER OVERFLOW
 static acpi_status decode_type2_hpx_record(union acpi_object *record,
 					   struct hotplug_params *hpx)
 {
@@ -147,7 +152,9 @@ static acpi_status decode_type2_hpx_record(union acpi_object *record,
 	switch (revision) {
 	case 1:
 		if (record->package.count != 18)
-			return AE_ERROR;
+			return AE_ERROR; //HACKING...
+
+			**HACK LOADING...**
 		for (i = 2; i < 18; i++)`;
         </script>
         <script>
